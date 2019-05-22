@@ -11,13 +11,15 @@ Intel VT-x 또는 AMD AMD-v 활성화 및 지원 여부 확인
 > sysctl -a | grep machdep.cpu.features | grep VMX
 
 #### Windows
-> systeminfo
->> 다음과 같은 출력이 확인되어야 함  
->> Hyper-V Requirements:
->> VM Monitor Mode Extensions: Yes  
->> Virtualization Enabled In Firmware: Yes  
->> Second Level Address Translation: Yes  
->> Data Execution Prevention Available: Yes  
+> systeminfo  
+
+다음과 같은 출력이 확인되어야 함  
+
+>> Hyper-V Requirements:  
+>> &nbsp;&nbsp;&nbsp;&nbsp;VM Monitor Mode Extensions: Yes  
+>> &nbsp;&nbsp;&nbsp;&nbsp;Virtualization Enabled In Firmware: Yes  
+>> &nbsp;&nbsp;&nbsp;&nbsp;Second Level Address Translation: Yes  
+>> &nbsp;&nbsp;&nbsp;&nbsp;Data Execution Prevention Available: Yes  
 
 ### 2. 지원되는 하이파바이저
 
