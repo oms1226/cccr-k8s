@@ -1,4 +1,5 @@
-## Kubespray를 이용한 Production Ready Kubernetes 클러스터 배포
+Kubespray를 이용한 Production Ready Kubernetes 클러스터 배포
+=======================================================
 [Kubespray GitHub Repository](https://github.com/kubernetes-sigs/kubespray)
 
 작성날짜: 2018년 11월 30일
@@ -32,8 +33,10 @@ OS: Ubuntu 18.04
 #### 1-1. Master Node
 - SSH 키 복사
 > ssh-keygen  
-> ssh-copy-id \<ACCOUNT\>@\<NODE\>  
-localhost 포함
+> ssh-copy-id vagrant@k8s-master  
+> ssh-copy-id vagrant@k8s-node1  
+> ssh-copy-id vagrant@k8s-node2  
+> ssh-copy-id vagrant@k8s-node3  
 
 - Ansible 설치 (최신)
 > sudo apt-get update  
