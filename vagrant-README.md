@@ -2,9 +2,14 @@ Vagrant 설치 밒 사용법
 =====================
 
 ### 1. Vagrant 다운로드 및 설치
+- 설치 파일 및 패키지
+https://www.vagrantup.com/downloads.html
 
-[Windows](https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.4_x86_64.msi)  
-[macOS](https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.4_x86_64.dmg)
+- macOS
+> brew install vagrant
+
+- Windows
+> choco install vagrant
 
 ### 2. Vagrant
 
