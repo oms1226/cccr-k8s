@@ -9,15 +9,16 @@ Vagrant 설치 밒 사용법
 ### 2. Vagrant
 
 #### 플러그인 설치  
-> vagrant plugin install vagrant-hostmanager
+> vagrant plugin install vagrant-hostmanager  
+> vagrant plugin install vagrant-disksize
 
 #### Box 이미지 다운로드
-> vagrant box add centos/7
+> vagrant box add ubuntu/bionic64
 
 #### Vagrant 파일
 > cd  
 > mkdir k8s  
-[Vagrantfile](https://raw.githubusercontent.com/c1t1d0s7/cccr/master/Ansible-Vagrantfile)  
+[Vagrantfile](https://raw.githubusercontent.com/c1t1d0s7/cccr-k8s/master/kubespray-Vagrantfile)  
 > 파일 받아서 Vagrantfile로 저장  
 
 ### 3. Vagrant 사용법
