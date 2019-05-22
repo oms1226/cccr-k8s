@@ -2,8 +2,8 @@ Vagrant 설치 밒 사용법
 =====================
 
 ### 1. Vagrant 다운로드 및 설치
-- 설치 파일 및 패키지
-https://www.vagrantup.com/downloads.html
+- 설치 파일 및 패키지  
+https://www.vagrantup.com/downloads.html  
 
 - macOS
 > brew install vagrant
