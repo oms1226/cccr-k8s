@@ -31,72 +31,69 @@ OS: Ubuntu 18.04
 
 #### 1-1. Master Node
 - SSH 키 복사
-> ssh-keygen
-> ssh-copy-id \<ACCOUNT\>@\<NODE\>
+> ssh-keygen  
+> ssh-copy-id \<ACCOUNT\>@\<NODE\>  
 localhost 포함
 
 - Ansible 설치 (최신)
-> sudo apt-get update
-> sudo apt-get install software-properties-common
-> sudo apt-add-repository --yes --update ppa:ansible/ansible
-> sudo apt-get install ansible python3 python3-pip git
+> sudo apt-get update  
+> sudo apt-get install software-properties-common  
+> sudo apt-add-repository --yes --update ppa:ansible/ansible  
+> sudo apt-get install ansible python3 python3-pip git  
 
 
 - sudo 설정
-> visudo
->> 	vagrant ALL=(ALL) NOPASSWD: ALL
+> visudo  
+>> 	vagrant ALL=(ALL) NOPASSWD: ALL  
 
 ### 2. Kubespray 배포
 
 - kubespray Git repository 클론
-> git clone https://github.com/kubernetes-sigs/kubespray.git
+> git clone https://github.com/kubernetes-sigs/kubespray.git  
 
 - requirements.txt 파일에서 의존성 확인 및 설치
-> cd kubespray
-> sudo pip3 install -r requirements.txt
+> cd kubespray  
+> sudo pip3 install -r requirements.txt  
 
 - 인벤토리 준비
-> cp -rfp inventory/sample inventory/mycluster
+> cp -rfp inventory/sample inventory/mycluster  
 
 - 인벤토리 빌드업
-> declare -a IPS=(192.168.56.11 192.168.56.21 192.168.56.22 192.168.56.23)
-> CONFIG_FILE=inventory/mycluster/hosts.yml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
+> declare -a IPS=(192.168.56.11 192.168.56.21 192.168.56.22 192.168.56.23)  
+> CONFIG_FILE=inventory/mycluster/hosts.yml python3 contrib/inventory_builder/inventory.py ${IPS[@]}  
 
 - 인벤토리 수정 
 inventory/mycluster/hosts.yml 파일
 
->[all]
->k8s-master	 ansible_host=192.168.56.11 ip=192.168.56.11
->k8s-node1 	 ansible_host=192.168.56.21 ip=192.168.56.21
->k8s-node2 	 ansible_host=192.168.56.22 ip=192.168.56.22
->k8s-node3 	 ansible_host=192.168.56.23 ip=192.168.56.23
+>[all]  
+>k8s-master	 ansible_host=192.168.56.11 ip=192.168.56.11  
+>k8s-node1 	 ansible_host=192.168.56.21 ip=192.168.56.21  
+>k8s-node2 	 ansible_host=192.168.56.22 ip=192.168.56.22  
+>k8s-node3 	 ansible_host=192.168.56.23 ip=192.168.56.23  
 >
->[kube-master]
->k8s-master1
+>[kube-master]  
+>k8s-master  
 >
->[etcd]
->k8s-master
+>[etcd]  
+>k8s-master  
 >
->[kube-node]
->k8s-node1
->k8s-node2
->k8s-node3
+>[kube-node]  
+>k8s-node1  
+>k8s-node2  
+>k8s-node3  
 >
->[k8s-cluster:children]
->kube-master
->kube-node
+>[k8s-cluster:children]  
+>kube-master  
+>kube-node  
 >
->[calico-rr]
+>[calico-rr]  
 >
->[vault]
->k8s-master1
->k8s-master2
->k8s-master3
-
+>[vault]  
+>k8s-master  
 
 - 파라미터 확인 및 변경 (필요 시 수정)
-> cat inventory/mycluster/group_vars/all/all.yml
-> cat inventory/mycluster/group_vars/k8s-cluster/k8s-cluster.yml
+> cat inventory/mycluster/group_vars/all/all.yml  
+> cat inventory/mycluster/group_vars/k8s-cluster/k8s-cluster.yml  
 
 - 플레이북 실행
-> ansible-playbook -i inventory/mycluster/hosts.yml cluster.yml --become
+> ansible-playbook -i inventory/mycluster/hosts.yml cluster.yml --become  
