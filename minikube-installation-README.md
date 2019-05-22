@@ -12,7 +12,7 @@ Intel VT-x 또는 AMD AMD-v 활성화 및 지원 여부 확인
 
 #### Windows
 > systeminfo
->> 다음과 같은 출력이 확인되어야 함. 
+>> 다음과 같은 출력이 확인되어야 함  
 >> Hyper-V Requirements:
 >> VM Monitor Mode Extensions: Yes  
 >> Virtualization Enabled In Firmware: Yes  
