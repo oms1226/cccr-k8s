@@ -84,11 +84,11 @@ https://www.virtualbox.org/wiki/Linux_Downloads
 #### minikube 최초 실행
 > minikube start --cpus 2 --memory 2048 --disk-size 20g --vm-driver virtualbox -p minikube
 
---cpus: CPU 개수 (기본 2)
---memory: 메모리 크기 (기본 2048)
---disk-size: 디스크 크기 (기본 20g)
---vm-driver: virtualbox parallels vmwarefusion kvm xhyve hyperv hyperkit kvm2 vmware none (기본 virtualbox)
--p: 프로파일(K8s 클러스터 이름) (기본 minikube)
+--cpus: CPU 개수 (기본 2)  
+--memory: 메모리 크기 (기본 2048)  
+--disk-size: 디스크 크기 (기본 20g)  
+--vm-driver: virtualbox parallels vmwarefusion kvm xhyve hyperv hyperkit kvm2 vmware none (기본 virtualbox)  
+-p: 프로파일(K8s 클러스터 이름) (기본 minikube)  
 
 #### minikube 중지
 > minikube stop
