@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: requests-big-pod
+spec:
+  containers:
+  - image: c1t1d0s7/cccr
+    name: requests-pod
+    resources:
+      requests:
+        cpu: 2000m
+        memory: 2Gi

@@ -1,0 +1,20 @@
+apiVersion: apps/v1beta2
+kind: DaemonSet
+metadata:
+  name: cccr
+spec:
+  selector:
+    matchLabels:
+      app: cccr
+  template:
+    metadata:
+      labels:
+        app: cccr
+    spec:
+      nodeSelector:
+        node: development
+      containers:
+      - name: cccr
+        image: c1t1d0s7/cccr
+        ports:
+        - containerPort: 8080

@@ -1,0 +1,18 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: cccr
+spec:
+  schedule: "*/2 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+           labels:
+             app: cccr
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: cccr
+            image: busybox
+            command: ["sleep", "60"]

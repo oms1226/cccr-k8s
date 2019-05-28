@@ -1,0 +1,20 @@
+apiVersion: apps/v1beta2
+kind: ReplicaSet
+metadata:
+  name: cccr
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cccr
+  template:
+    metadata:
+      labels:
+        app: cccr
+    spec:
+      containers:
+      - name: cccr
+        image: c1t1d0s7/cccr
+        ports:
+        - name: cccr-http
+          containerPort: 8080

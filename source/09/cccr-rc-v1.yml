@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: cccr-rc-v1
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: cccr
+    spec:
+      containers:
+      - name: cccr
+        image: c1t1d0s7/cccr:v1
+        ports:
+        - containerPort: 8080

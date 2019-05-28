@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cccr-env-pod
+spec:
+  containers:
+  - image: c1t1d0s7/cccr:custport
+    name: cccr
+    env:
+    - name: NODE_PORT
+      value: "8088"
+    ports:
+    - containerPort: 8088
+      protocol: TCP

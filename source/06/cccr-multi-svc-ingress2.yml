@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: cccr-multi-svc-ingress2
+spec:
+  rules:
+  - host: foo.example.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: cccr-foo-nodeport
+          servicePort: 80
+  - host: bar.example.com
+    http:
+     paths:
+      - path: /
+        backend:
+          serviceName: cccr-bar-nodeport
+          servicePort: 80

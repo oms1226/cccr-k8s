@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: cccr
+spec:
+  template:
+    metadata:
+      labels:
+        app: cccr
+    spec:
+      restartPolicy: OnFailure
+      containers:
+      - name: cccr
+        image: busybox
+        command: ["sleep", "60"]

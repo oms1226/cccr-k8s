@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cccr
+  labels:
+    app: cccr
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cccr
+  template:
+    metadata:
+      labels:
+        app: cccr
+    spec:
+      containers:
+      - image: c1t1d0s7/cccr:v1
+        name: cccr-cont
+        ports:
+        - containerPort: 8080

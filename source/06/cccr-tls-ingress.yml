@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: cccr-tls-ingress
+spec:
+  tls:
+  - hosts:
+    - cccr.example.com
+    secretName: ingress-tls-secret
+  rules:
+  - host: cccr.example.com
+    http:
+      paths:
+      - path: /
+        backend: 
+          serviceName: cccr-nodeport
+          servicePort: 80
