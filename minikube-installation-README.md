@@ -65,7 +65,8 @@ https://www.virtualbox.org/wiki/Linux_Downloads
 > sudo cp minikube /usr/local/bin && rm minikube
 
 #### macOS
-> brew cask install minikube  
+> brew cask install minikube
+> brew install kubernetes-cli docker
 
 또는
 
@@ -73,7 +74,7 @@ https://www.virtualbox.org/wiki/Linux_Downloads
 > sudo mv minikube /usr/local/bin
 
 #### Windows
-> choco install minikube kubernetes-cli
+> choco install minikube kubernetes-cli docker
 
 또는
 
