@@ -30,7 +30,7 @@ VirtualBox, KVM(권장)
 VirtualBox, VMware Fusion, HyperKit(권장)
 
 #### Windows
-VirtualBox, Hyper-V(권장)
+VirtualBox(권장), Hyper-V
 
 ### (옵션) 3. 패키지 관리자 설치
 
