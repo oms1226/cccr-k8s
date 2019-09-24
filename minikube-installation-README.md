@@ -80,6 +80,9 @@ https://www.virtualbox.org/wiki/Linux_Downloads
 
 [minikube-installer.exe](https://github.com/kubernetes/minikube/releases/latest)
 
+수동설치시(kubectl 명령 다운로드)  
+[kubectl.exe](https://storage.googleapis.com/kubernetes-release/release/v1.16.0/bin/windows/amd64/kubectl.exe)  
+
 ### 6. minikube 실행
 
 #### minikube 최초 실행
