@@ -1,11 +1,19 @@
+#아래 4가지 요소가 기본적으로 다 포함된다.
 apiVersion: v1
 kind: Pod
+#보통 파드 이름을 선언하기 위함이다.
 metadata:
   name: cccr-pod
+  labels:
+    app: cccr1
+  namespace: development
 spec:
   containers:
   - image: c1t1d0s7/cccr
     name: cccr
+    #서비스 포트를 정의하는 부분이며, 여기서 선언했다고 실제 port가 잡히는 것이 아니라 info의 의미이다.
     ports:
     - containerPort: 8080
       protocol: TCP
+      #위를 선언하지 않더라도 default가 TCP이다.
+#기본적으로 파드는 detach 모델로 동작하므로

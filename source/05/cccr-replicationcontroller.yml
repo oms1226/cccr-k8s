@@ -2,12 +2,17 @@ apiVersion: v1
 kind: ReplicationController
 metadata:
   name: cccr
+#이 위치에 컨트롤러도 검색을 하기 위해 일반적으로는 라벨을 정의한다!
 spec:
+#파드의 수
   replicas: 3
+#라벨 셀렉터
   selector:
     app: cccr
+#파드에 제공할 정보
   template:
     metadata:
+      #파드에 라벨! 위의 라벨 셀렉터와 같아야 된다!
       labels:
         app: cccr
     spec:
