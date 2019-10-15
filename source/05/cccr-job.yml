@@ -8,8 +8,10 @@ spec:
       labels:
         app: cccr
     spec:
+      #재시작 정책: always(default) / never(재시작하지않음) / OnFailure(실패났을 때만 재시작)
       restartPolicy: OnFailure
       containers:
       - name: cccr
+      #sleep을 사용하기 위해 busybox를 사용했다.
         image: busybox
-        command: ["sleep", "60"]
+        command: ["sleep", "10"]

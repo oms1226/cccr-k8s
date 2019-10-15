@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: cccr
@@ -11,6 +11,8 @@ spec:
       labels:
         app: cccr
     spec:
+#daemonset에만 있는 것은 아니다.
+#pod.spec 등에도 존재한다.
       nodeSelector:
         node: development
       containers:
