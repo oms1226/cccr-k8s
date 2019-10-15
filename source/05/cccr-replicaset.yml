@@ -1,10 +1,13 @@
-apiVersion: apps/v1beta2
+#error: unable to recognize "./cccr-replicaset.yml": no matches for kind "ReplicaSet" in version "apps/v1beta2"
+#apps/v1beta2 -> apps/v1
+apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: cccr
 spec:
   replicas: 3
   selector:
+#레플리케이션 컨트롤러의 selector에 해당  
     matchLabels:
       app: cccr
   template:
