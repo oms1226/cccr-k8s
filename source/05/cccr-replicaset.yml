@@ -25,3 +25,5 @@ spec:
         image: c1t1d0s7/cccr
         ports:
         - containerPort: 8080
+#리스트로 되어 있으니 다중으로 선언할 수 있다.
+#        - containerPort: 8081

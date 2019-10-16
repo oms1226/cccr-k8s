@@ -6,7 +6,7 @@ metadata:
   name: cccr-pod
   labels:
     app: cccr1
-  namespace: development
+#  namespace: development
 spec:
   containers:
   - image: c1t1d0s7/cccr

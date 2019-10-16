@@ -2,9 +2,13 @@ apiVersion: v1
 kind: Service
 metadata:
   name: cccr
+#서비스에도 라벨이 필요하면 부칠 수 있다.
+#  labels: blurblur
 spec:
   ports:
+  #리스트이므로 다중으로 선언해서 매칭시킬 수 있다!
   - port: 80
     targetPort: 8080
+#라벨의 셀럭터를 두어 대상을 정하게 된다!
   selector:
     app: cccr

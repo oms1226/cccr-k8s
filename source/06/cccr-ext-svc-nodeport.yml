@@ -3,10 +3,20 @@ kind: Service
 metadata:
   name: cccr-nodeport
 spec:
+#HostPort, NodePort 두개가 있으며, 대부분 NodePort만 쓴다.
+##HostPort는 pod가 떠있는 노드에만 host의 포트를 연다.
+##NodePort는 pod가 있든 없든 모든 노드의 host 포트를 연다.
+###아무 노드에 접속해도 해당 되는 pod가 있는 노드로 redirect 시켜준다.
   type: NodePort
   ports:
+  #서비스의 포트
   - port: 80
+    #대상 파드의 포트
     targetPort: 8080
+    #3만번 이상을 사용해야 되며, 그렇지 않으면 에러 난다.
     nodePort: 31111
+  #표시해주는 ip 를 선언할 수 있다.
+  externalIPs:
+    - 192.168.99.101
   selector:
     app: cccr
