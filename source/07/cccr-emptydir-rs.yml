@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: cccr-fortune
@@ -16,16 +16,22 @@ spec:
       - name: web-server
         image: nginx:alpine
         volumeMounts:
+        #볼륨에 선언한 이름을 선언하고!
         - name: web-fortune
+        #컨테이너 내의 path를 설정
           mountPath: /usr/share/nginx/html
+        #소비하는 쪽이기에 리드 온니로 설정
           readOnly: true
         ports:
         - containerPort: 80
       - name: html-generator
+      #fortune 작업한 이미지
         image: c1t1d0s7/fortune
         volumeMounts:
+        #볼륨에 선언한 이름을 선언하고!
         - name: web-fortune
           mountPath: /var/htdocs
       volumes:
+      #name은 자기가 알아서 작명하면 된다.
       - name: web-fortune
         emptyDir: {}

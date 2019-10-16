@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   name: cccr-ingress
 spec:
+#젤 중요한 부분
+#cccr.example.com/ -> sevice에 해당되는 서비스의 port 로 연결시켜 준다. 
   rules:
   - host: cccr.example.com
     http:

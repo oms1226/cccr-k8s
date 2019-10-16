@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: cccr
@@ -15,7 +15,9 @@ spec:
       containers:
       - name: cccr
         image: c1t1d0s7/cccr
+#여기 부분이 readinessProbe
         readinessProbe:
+        # exec: [ 'ls', '/var/ready' ] 아래와 동일
           exec:
             command:
               - ls

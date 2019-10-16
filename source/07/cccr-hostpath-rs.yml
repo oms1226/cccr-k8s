@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: cccr-hostpath
@@ -16,12 +16,16 @@ spec:
       - name: web-server
         image: nginx:alpine
         volumeMounts:
+        #아래 작명한 이름을 선언하고,
         - name: web-content
+        #컨테이너 내부에 마운트 위치를 정한다.
           mountPath: /usr/share/nginx/html
         ports:
         - containerPort: 80
       volumes:
+      #이름을 작명하고,
       - name: web-content
+      #아래는 host에 해당 디렉토리를 생성해야 된다.
         hostPath:
           type: Directory
           path: /web_contents

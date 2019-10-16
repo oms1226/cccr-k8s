@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: cccr-headless
 spec:
+#아래와 같이 생성하면 headless 서비스
   clusterIP: None
   ports:
   - port: 80
