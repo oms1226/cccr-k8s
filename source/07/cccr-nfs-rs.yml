@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: cccr-nfs
@@ -22,5 +22,6 @@ spec:
         - containerPort: 80
       volumes:
       - name: nfs-share
+      #PVC는 실제 cccr-nfs-pvc 라는 파드가 존재해야 된다.
         persistentVolumeClaim:
           claimName: cccr-nfs-pvc

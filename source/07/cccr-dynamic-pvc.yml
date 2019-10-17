@@ -8,4 +8,5 @@ spec:
   resources:
     requests:
       storage: 100Mi
-  storageClassName: glusterfile
+  #storageClassName: "standard" //minikube default 는 이것이다.
+  storageClassName: "glusterfile"

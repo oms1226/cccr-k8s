@@ -5,9 +5,15 @@ metadata:
 spec:
   capacity:
     storage: 5Gi
+  #PVC와 동일한 모드를 설정한다.
   accessModes:
     - ReadWriteMany
+  #PV, PVC의 라이프사이클
+  #PV 와 PVC 는 1대1로 연결된다.
+  #회수하는 정책은 아래이며, Retain/Delete/Recycle
   persistentVolumeReclaimPolicy: Retain
+  #실제 storage에 대한 정보가 여기에 들어간다.
   nfs:
     path: /nfs-volume
-    server: 192.168.64.18
+    #minikube status 를 통해 host ip 입력
+    server: 192.168.99.101

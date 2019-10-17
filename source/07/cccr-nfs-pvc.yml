@@ -3,6 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: cccr-nfs-pvc
 spec:
+#ReadWriteOnce, ReadOnlyMany, ReadWriteMany #네트워크 특성에 따라 지원모드는 달라질 수 있다.
   accessModes:
     - ReadWriteMany
   resources:
