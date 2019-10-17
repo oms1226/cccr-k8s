@@ -21,6 +21,8 @@ spec:
         configMapKeyRef:
           name: pod-options
           key: message
+        #환경변수로 configMap 외에 secret 사용 시에는
+        ##secretKeyRef 라는 식별자를 사용하며, 문법은 configMapKeyRef과 동일
     #위에 읽어온 MESSAGE 를 command의 arg로 제공
     args: 
     - $(MESSAGE)

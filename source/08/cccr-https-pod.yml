@@ -22,5 +22,6 @@ spec:
     configMap:
       name: tls-nginx-config
   - name: https-cert
+  #시크릿을 아래와 같이 선언한다!
     secret:
       secretName: nginx-tls-secret
