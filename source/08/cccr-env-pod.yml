@@ -4,6 +4,9 @@ metadata:
   name: cccr-env-pod
 spec:
   containers:
+  #기 강사님이 만들어놓으신 이미지이다!
+  ##아래 이미지는 /Users/oms1226/_workspace/_k8s/cccr-k8s/source/02/index.js 파일에서 아래와 같이 변경하고 그 것을 다시 image로 만드 것으로 이해하면 된다!
+  ###www.listen(8080); -> www.listen(process.env.NODE_PORT);
   - image: c1t1d0s7/cccr:custport
     name: cccr
     env:
