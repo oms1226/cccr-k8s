@@ -3,6 +3,7 @@ kind: Ingress
 metadata:
   name: cccr-tls-ingress
 spec:
+  #지원하려면, tls 내 secretName 의 key, cert 있는 secret를 지정해주면 된다!
   tls:
   - hosts:
     - cccr.example.com

@@ -17,6 +17,6 @@ spec:
     nodePort: 31111
   #표시해주는 ip 를 선언할 수 있다.
   externalIPs:
-    - 192.168.99.101
+    - 192.168.99.102
   selector:
     app: cccr
