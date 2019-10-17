@@ -20,6 +20,7 @@ spec:
           mountPath: /usr/share/nginx/html
         ports:
         - containerPort: 80
+      #이 템플릿에서 생성된 파드는 항상 아래의 동일한 볼륨을 바라보게 된다.
       volumes:
       - name: nfs-share
       #PVC는 실제 cccr-nfs-pvc 라는 파드가 존재해야 된다.

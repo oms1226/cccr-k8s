@@ -8,12 +8,15 @@ spec:
       app: mysql
   serviceName: mysql
   replicas: 2
+  #파드의 템플릿
   template:
     metadata:
       labels:
         app: mysql
     spec:
+      #containers 시작 전에 딱한번만 실행시키는 컨테이너
       initContainers:
+      #설정파일을 만든다. 마스터와 슬레이브에
       - name: init-mysql
         image: mysql:5.7
         command:
@@ -22,6 +25,8 @@ spec:
         - |
           set -ex
           # Generate mysql server-id from pod ordinal index.
+          #아래는 파드의 이름을 빼서 그에 맞는 이름을 정해줘서 관리하기 위함이고
+          #스테이트 풀셋이라 이름이 고정적으로 정해진다.
           [[ `hostname` =~ -([0-9]+)$ ]] || exit 1
           ordinal=${BASH_REMATCH[1]}
           echo [mysqld] > /mnt/conf.d/server-id.cnf
@@ -56,6 +61,7 @@ spec:
           # Prepare the backup.
           xtrabackup --prepare --target-dir=/var/lib/mysql
         volumeMounts:
+        #volumeClaimTemplates 이 data이다
         - name: data
           mountPath: /var/lib/mysql
           subPath: mysql
@@ -65,6 +71,7 @@ spec:
       - name: mysql
         image: mysql:5.7
         env:
+        #패스워드 없이 구성하게 된다.
         - name: MYSQL_ALLOW_EMPTY_PASSWORD
           value: "1"
         ports:
@@ -82,6 +89,7 @@ spec:
           initialDelaySeconds: 30
           periodSeconds: 10
           timeoutSeconds: 5
+        #자기자신에게 접근이 되는지 확인
         readinessProbe:
           exec:
             # Check we can execute queries over TCP (skip-networking is off).
@@ -94,6 +102,7 @@ spec:
         ports:
         - name: xtrabackup
           containerPort: 3307
+        #동기화 및 백업하기 위한 커맨드
         command:
         - bash
         - "-c"
@@ -149,6 +158,7 @@ spec:
       - name: config-map
         configMap:
           name: mysql
+  #볼륨의 템플릿
   volumeClaimTemplates:
   - metadata:
       name: data

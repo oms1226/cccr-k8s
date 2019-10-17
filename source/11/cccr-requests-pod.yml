@@ -8,5 +8,8 @@ spec:
     name: requests-pod
     resources:
       requests:
+      #cpu 의 200 밀리코어는 이 컨테이너가 사용하겠다.
         cpu: 200m
+        #cpu: 1 //하나의 cpu를 사용하겠다는 의미이고,
+        #cpu: 0.1 //하나의 cpu에 10%를 사용하겠다는 의미
         memory: 10Mi

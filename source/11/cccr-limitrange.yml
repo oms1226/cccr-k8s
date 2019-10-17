@@ -12,6 +12,7 @@ spec:
       cpu: 1
       memory: 1Gi
   - type: Container
+    #request 를 선언하지 않을 때 default 값
     defaultRequest:
       cpu: 100m
       memory: 10Mi
@@ -24,6 +25,7 @@ spec:
     max:
       cpu: 1
       memory: 1Gi
+    #limit, request 의 몇배가 차이를 날 수 있느냐
     maxLimitRequestRatio:
       cpu: 4
       memory: 10

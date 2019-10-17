@@ -9,12 +9,15 @@ spec:
   selector:
     matchLabels:
       app: cccr
+  #롤링 업데이트 시 생성 후 다음 작업에서 delay를 주기 위해서는 아래 delay로 초를 기입할 수 있다.
+  minReadySeconds: 5
   template:
     metadata:
       labels:
         app: cccr
     spec:
       containers:
+      #교체대상이되는 이미지를 기록한다.
       - image: c1t1d0s7/cccr:v3
         name: cccr-cont
         ports:

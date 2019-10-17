@@ -9,6 +9,7 @@ spec:
   ports:
   - name: mysql
     port: 3306
+  #헤드리스 서비스
   clusterIP: None
   selector:
     app: mysql
