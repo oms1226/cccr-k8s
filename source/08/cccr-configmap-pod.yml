@@ -6,17 +6,22 @@ spec:
   containers:
   - image: c1t1d0s7/cccr:custport
     name: cccr
+    #환경변수를 읽을 때 쓰는 식별자
     env:
+    #변수이름
     - name: NODE_PORT
       valueFrom:
         configMapKeyRef:
+          #컨피그맵의 이름
           name: pod-options
+          #컨피그맵 내의 key의 이름
           key: nodeport
     - name: MESSAGE
       valueFrom:
         configMapKeyRef:
           name: pod-options
           key: message
+    #위에 읽어온 MESSAGE 를 command의 arg로 제공
     args: 
     - $(MESSAGE)
     ports:

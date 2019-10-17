@@ -7,11 +7,18 @@ spec:
   - image: nginx
     name: cccr-comp
     volumeMounts:
+    #아래에 선언한 볼륨이름을 입력
     - name: nginx-config
+    #아래는 마운트할 디렉토리를 선언하는 것이다.
       mountPath: /etc/nginx/conf.d
+    #위에 패스에 기존에 파일이 있다면 마운트하면 기존 존재했던 파일은 접근이 안된다. 마운트 해제 전까지
+    #파일로 선언하려면! 아래와 같이 한다!
+    ##  mountPath: /etc/nginx/conf.d/a.conf
+    ##  subPath: a.conf
     ports:
     - containerPort: 80
       protocol: TCP
+  #볼륨으로 제공하기에 아래와 같이 지정
   volumes:
   - name: nginx-config
     configMap:
